@@ -6,17 +6,19 @@
     <li ng-class="{ active:tab.isSet(2) }">
       <a href ng-click="tab.setTab(2)">Specs</a>
     </li>
-    <li ng-class="{ active:tab.isSet(3) }">
+    <li ng-class="{ active:tab.isSet(3) }" ng-click="store.indexReviews(product)">
       <a href ng-click="tab.setTab(3)">Reviews</a>
+    </li>
+    <li ng-class="{ active:tab.isSet(4) }">
+      <a href ng-click="tab.setTab(4)">Edit</a>
+    </li>
+    <li>
+      <a href ng-click="store.delete(product)">Delete</a>
     </li>
   </ul>
 
-  <!--  Description Tab's Content  -->
   <product-description ng-show="tab.isSet(1)"></product-description>
-
-  <!--  Spec Tab's Content  -->
-  <div product-specs ng-show="tab.isSet(2)"></div>
-
-  <!--  Review Tab's Content  -->
+  <product-specs ng-show="tab.isSet(2)"></product-specs>
   <product-reviews ng-show="tab.isSet(3)"></product-reviews>
+  <product-edit ng-show="tab.isSet(4)"></product-edit>
 </section>

@@ -1,0 +1,20 @@
+<h4>Edit</h4>
+<form name="editForm" ng-submit="store.update(product)">
+  <label for="description">Description:</label>
+  <input ng-model="product.description" class="form-control" name="description" />
+
+  <label for="shine">Shine:</label>
+  <input ng-model="product.shine" class="form-control" name="shine" />
+
+  <label for="faces"></label>Faces:
+  <input ng-model="product.faces" class="form-control" name="faces" />
+
+  <label for="rarity">Rarity:</label>
+  <input ng-model="product.rarity" class="form-control" name="rarity" />
+
+  <label for="color">Color:</label>
+  <input ng-model="product.color" class="form-control" name="Color" />
+
+  <br>
+  <input type="submit" class="btn btn-primary" value="Submit" />
+</form>

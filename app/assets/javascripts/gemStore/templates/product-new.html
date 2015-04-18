@@ -1,0 +1,23 @@
+<h2>New Product:</h2>
+<form name="newForm" ng-submit="store.create()">
+  <label for="description">Name:</label>
+  <input ng-model="store.product.name" class="form-control" name="name" />
+
+  <label for="description">Description:</label>
+  <input ng-model="store.product.description" class="form-control" name="description" />
+
+  <label for="shine">Shine:</label>
+  <input ng-model="store.product.shine" class="form-control" name="shine" />
+
+  <label for="faces"></label>Faces:
+  <input ng-model="store.product.faces" class="form-control" name="faces" />
+
+  <label for="rarity">Rarity:</label>
+  <input ng-model="store.product.rarity" class="form-control" name="rarity" />
+
+  <label for="color">Color:</label>
+  <input ng-model="store.product.color" class="form-control" name="Color" />
+
+  <br>
+  <input type="submit" class="btn btn-primary" value="Submit" />
+</form>
