@@ -5,10 +5,15 @@ module API
       render json: reviews, status: 200
     end
 
+    def show
+      review = Product.find(params[:product_id]).reviews.find(params[:id])
+      render json: review, status: 200
+    end
+
     def create
       review = Review.new(review_params)
       if review.save
-        render json: review, status: 201, location: api_product_review_path(review.product_id, review)
+        render json: review, status: 201, location: api_product_review_path(params[:product_id], review)
       else
         render json: review.errors, status: 422
       end
