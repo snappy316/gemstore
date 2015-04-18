@@ -37,3 +37,52 @@ Product.create!(
   color: "#000",
   faces: 6
 )
+
+Review.create!(
+  product_id: 1,
+  stars: 5,
+  body: "I love this gem!",
+  author: "joe@example.org"
+)
+
+Review.create!(
+  product_id: 1,
+  stars: 1,
+  body: "This gem sucks.",
+  author: "tim@example.org"
+)
+
+Review.create!(
+  product_id: 2,
+  stars: 3,
+  body: "I think this gem was just OK, could honestly use more shine, IMO.",
+  author: "JimmyDean@example.org"
+)
+
+Review.create!(
+  product_id: 2,
+  stars: 4,
+  body: "Any gem with 12 faces is for me!",
+  author: "gemsRock@example.org"
+)
+
+Review.create!(
+  product_id: 3,
+  stars: 1,
+  body: "This gem is WAY too expensive for its rarity value.",
+  author: "turtleguyy@example.org"
+)
+
+Review.create!(
+  product_id: 3,
+  stars: 1,
+  body: "BBW: High Shine != High Quality.",
+  author: "LouisW407@example.org"
+)
+
+Review.create!(
+  product_id: 3,
+  stars: 1,
+  body: "Don't waste your rubles!",
+  author: "nat@example.org"
+)
