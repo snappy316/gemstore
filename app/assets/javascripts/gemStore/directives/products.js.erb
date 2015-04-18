@@ -1,6 +1,6 @@
 (function() {
   var app = angular.module('store-directives', []);
-  
+
   app.directive("productDescription", function() {
     return {
       restrict: 'E',
@@ -17,7 +17,7 @@
 
   app.directive("productSpecs", function() {
     return {
-      restrict:"A",
+      restrict: 'E',
       templateUrl: '<%= asset_path("gemStore/templates/product-specs.html") %>'
     };
   });
@@ -52,6 +52,20 @@
         };
       },
       controllerAs: "gallery"
+    };
+  });
+
+  app.directive("productEdit", function() {
+    return {
+      restrict: 'E',
+      templateUrl: '<%= asset_path("gemStore/templates/product-edit.html") %>'
+    };
+  });
+
+  app.directive("productNew", function() {
+    return {
+      restrict: 'E',
+      templateUrl: '<%= asset_path("gemStore/templates/product-new.html") %>'
     };
   });
 })();

@@ -4,22 +4,68 @@
 (function() {
   var app = angular.module('gemStore', ['store-directives']);
 
+  app.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.headers.common['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
+  }]);
+
   app.controller('StoreController', ['$http', function($http){
     var store = this;
     store.products = [];
-    $http.get('/store-products.json').success(function(data){
-    // $http.get('api/products').success(function(data){
-      store.products = data;
-    });
+    store.product = {};
+
+    store.create = function() {
+      $http.post('api/products', store.product)
+        .success(function(data) {
+          store.products.push(data);
+          store.product = {};
+        });
+    };
+
+    store.index = function() {
+      $http.get('api/products')
+        .success(function(data){
+          store.products = data;
+        });
+    };
+
+    store.update = function(product) {
+      $http.patch('api/products/' + product.id, product)
+        .success(function(data) {
+          var index = store.products.indexOf(product);
+          store.products[index] = data;
+        });
+    };
+
+    store.delete = function(product) {
+      if(confirm("Are you sure you want to delete " + product.name + "?")) {
+        $http.delete('api/products/' + product.id)
+          .success(function() {
+            var index = store.products.indexOf(product);
+            store.products.splice(index, 1);
+          });
+      }
+    };
+
+    store.indexReviews = function(product) {
+      $http.get('api/products/' + product.id + '/reviews')
+        .success(function(data){
+          product.reviews = data;
+        });
+    };
   }]);
 
-  app.controller('ReviewController', function(){
+  app.controller('ReviewController', ['$http', function($http){
     this.review = {};
 
     this.addReview = function(product) {
-      this.review.createdOn = Date.now();
-      product.reviews.push(this.review);
-      this.review = {};
+      // $http.post('api/products/' + product.id + '/reviews', this.review)
+      //   .success(function(data) {
+          product.reviews.push(this.review);
+          this.review = {};
+        // })
+        // .error(function(data) {
+        //   alert("Uh oh...")
+        // });
     };
-  });
+  }]);
 })();

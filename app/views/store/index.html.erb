@@ -1,5 +1,5 @@
 <div ng-app="gemStore">
-  <div class="list-group" ng-controller="StoreController as store">
+  <div class="list-group" ng-controller="StoreController as store" ng-init="store.index()">
     <!--  Store Header  -->
     <header>
       <h1 class="text-center">Flatlander Crafted Gems</h1>
@@ -15,6 +15,10 @@
 
       <!-- Product Tabs -->
       <product-tabs></product-tabs>
+    </div>
+
+    <div class="list-group-item">
+      <product-new></product-new>
     </div>
   </div>
 </div>

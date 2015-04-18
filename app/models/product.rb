@@ -1,4 +1,4 @@
 class Product < ActiveRecord::Base
   validates :name, presence: true, length: { minimum: 3 }
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 end
