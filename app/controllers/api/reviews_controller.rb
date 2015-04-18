@@ -1,5 +1,10 @@
 module API
   class ReviewsController < ApplicationController
+    def index
+      reviews = Product.find(params[:product_id]).reviews.all
+      render json: reviews, status: 200
+    end
+
     def create
       review = Review.new(review_params)
       if review.save
