@@ -9,6 +9,12 @@ module API
       end
     end
 
+    def destroy
+      review = Review.find(params[:id])
+      review.destroy
+      head 204
+    end
+
     private
 
     def review_params
